@@ -1,14 +1,9 @@
-﻿using Business.PageObjects.CurrencyRatesPage.NBRB;
-using Business.PageObjects.CurrencyRatesPage.OtherBanks;
-using OpenQA.Selenium;
-using System;
+﻿using OpenQA.Selenium;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Business.PageObjects.CurrencyRatesPage
 {
-    public class CurrencySection:BasePageObject
+    public class CurrencySection : BasePageObject
     {
         public CurrencySection(IWebDriver driver) : base(driver)
         {
@@ -18,17 +13,16 @@ namespace Business.PageObjects.CurrencyRatesPage
 
         private CurrencyRow _currencyRow;
 
-        private List<CurrencyRow> _currencyRows;
-        
+        private List<CurrencyRow> CurrencyRows;
+
         protected static By GetTagLocatorWithTitle(Currency currency) => By.XPath($"//p[contains(@class,'abbr rate')]//b[contains(text(),'{currency}')]/ancestor::tr[1]");
-      
 
         public CurrencyRow GetRowByCurrency(Currency currency)
         {
-            return this._currencyRow ?? (this._currencyRow=new CurrencyRow(_rowsBestCurrency.FindElement(GetTagLocatorWithTitle(currency))));            
+            return this._currencyRow ?? (this._currencyRow = new CurrencyRow(_rowsBestCurrency.FindElement(GetTagLocatorWithTitle(currency))));
 
         }
-       
+
 
     }
 }

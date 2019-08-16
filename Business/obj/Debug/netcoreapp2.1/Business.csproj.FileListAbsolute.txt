@@ -6,3 +6,4 @@ C:\Users\Nastassia_Karatkova\Documents\OnlinerTests\Business\obj\Debug\netcoreap
 C:\Users\Nastassia_Karatkova\Documents\OnlinerTests\Business\bin\Debug\netcoreapp2.1\Business.pdb
 C:\Users\Nastassia_Karatkova\Documents\OnlinerTests\Business\obj\Debug\netcoreapp2.1\Business.dll
 C:\Users\Nastassia_Karatkova\Documents\OnlinerTests\Business\obj\Debug\netcoreapp2.1\Business.pdb
+C:\Users\Nastassia_Karatkova\Documents\OnlinerTests\Business\obj\Debug\netcoreapp2.1\Business.csprojAssemblyReference.cache

@@ -1,10 +1,8 @@
 ﻿using Business;
 using Business.PageObjects.CurrencyRatesPage;
+using Business.PageObjects.MainPage.Navigation;
 using Business.TestBase;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace OnlinerTests.CurrencyTests
 {
@@ -14,9 +12,8 @@ namespace OnlinerTests.CurrencyTests
         [Test]
         [Order(1)]
         public void CheckСoincidenceCurrentDollarRate()
-        {
-            var currency = new CurrencySection(Driver).GetRowByCurrency(Currency.USD).OfficialRateCell.Value;
-            Assert.IsTrue(currency == (decimal)2.0457d);
+        { 
+            Assert.IsTrue(new CurrencySection(Driver).GetRowByCurrency(Currency.USD).OfficialRateCell.Value == new NavigationBar(Driver).CurrencyValue);
         }
 
         [Test]
