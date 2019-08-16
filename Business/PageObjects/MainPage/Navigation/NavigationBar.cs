@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Globalization;
+using System.Linq;
 
 namespace Business.PageObjects.MainPage.Navigation
 {
@@ -21,7 +22,7 @@ namespace Business.PageObjects.MainPage.Navigation
         {
             get
             {
-                return Decimal.Parse(_currencyValueElement.Text.Substring(1), CultureInfo.CreateSpecificCulture("be-BY")); ;
+                return Decimal.Parse(String.Concat(_currencyValueElement.Text.Where(x => x == ',' || Char.IsDigit(x))), CultureInfo.CreateSpecificCulture("be-BY")); ;
             }
         }
     }
