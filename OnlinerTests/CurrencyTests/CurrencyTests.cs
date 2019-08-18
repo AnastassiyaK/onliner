@@ -9,12 +9,12 @@ using NUnit.Framework;
 namespace OnlinerTests.CurrencyTests
 {
     [TestFixture]
-    public class CurrencyTests:TestBase
+    public class CurrencyTests : TestBase
     {
         [Test]
         [Order(1)]
         public void CheckСoincidenceCurrentDollarRate()
-        { 
+        {
             Assert.IsTrue(new CurrencySection(Driver).GetRowByCurrency(Currency.USD).OfficialRateCell.Value == new NavigationBar(Driver).CurrencyValue);
         }
 
@@ -27,13 +27,20 @@ namespace OnlinerTests.CurrencyTests
             {
                 new Converter(Driver).ClearConverter().EnterNumberForConversion(number);
                 var outConverter = new OutConverter(Driver).Result;
-                if (outConverter==0)
+                if (outConverter == 0)
                 {
                     ValidateNumber(number);
                 }
-                Assert.AreEqual(new CurrencySection(Driver).GetRowByCurrency(Currency.USD).OtherBankCell.Value*number, outConverter);
+                if (number < 0)
+                {
+                    Assert.AreEqual(new CurrencySection(Driver).GetRowByCurrency(Currency.USD).OtherBankCell.Value * (-1) * number, outConverter);
+                }
+                else
+                {
+                    Assert.AreEqual(new CurrencySection(Driver).GetRowByCurrency(Currency.USD).OtherBankCell.Value * number, outConverter);
+                }
             }
-            catch(NegativeValueException e)
+            catch (NegativeValueException e)
             {
                 Assert.Warn(e.Message);
             }
@@ -41,7 +48,7 @@ namespace OnlinerTests.CurrencyTests
 
         public void ValidateNumber(int number)
         {
-            if (number<0)
+            if (number < 0)
             {
                 throw new NegativeValueException(number);
             }
@@ -55,9 +62,8 @@ namespace OnlinerTests.CurrencyTests
 
         }
 
-        public static object[] numbers =
-            { new object[] { 0 } };
+        public static int[] numbers =
+            new int[] { -3, 0, int.MaxValue };
 
-        //-3,0,int.MaxValue
     }
 }

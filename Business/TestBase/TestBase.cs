@@ -28,11 +28,12 @@ namespace Business.TestBase
 
         public TestBase()
         {
-            InitBrowser();
+           
         }
         [SetUp]
         public void SetUp()
         {
+            InitBrowser();
             GoToUrl("https://kurs.onliner.by/");
         }
 
