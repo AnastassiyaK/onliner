@@ -1,5 +1,7 @@
 ﻿using Business;
+using Business.Exceptions;
 using Business.PageObjects.CurrencyRatesPage;
+using Business.PageObjects.CurrencyRatesPage.CurrencyConverterForm;
 using Business.PageObjects.MainPage.Navigation;
 using Business.TestBase;
 using NUnit.Framework;
@@ -18,10 +20,31 @@ namespace OnlinerTests.CurrencyTests
 
         [Test]
         [Order(2)]
-        [TestCaseSource("Numbers")]
-        public void CheckInputForConversion(int negative, int zero, int maxValueInt)
+        [TestCaseSource("numbers")]
+        public void CheckInputForConversion(int number)
         {
+            try
+            {
+                new Converter(Driver).ClearConverter().EnterNumberForConversion(number);
+                var outConverter = new OutConverter(Driver).Result;
+                if (outConverter==0)
+                {
+                    ValidateNumber(number);
+                }
+                Assert.AreEqual(new CurrencySection(Driver).GetRowByCurrency(Currency.USD).OtherBankCell.Value*number, outConverter);
+            }
+            catch(NegativeValueException e)
+            {
+                Assert.Warn(e.Message);
+            }
+        }
 
+        public void ValidateNumber(int number)
+        {
+            if (number<0)
+            {
+                throw new NegativeValueException(number);
+            }
         }
 
         [Test]
@@ -33,8 +56,8 @@ namespace OnlinerTests.CurrencyTests
         }
 
         public static object[] numbers =
-            { new object[] { -3,0,int.MaxValue} };
+            { new object[] { 0 } };
 
-
+        //-3,0,int.MaxValue
     }
 }

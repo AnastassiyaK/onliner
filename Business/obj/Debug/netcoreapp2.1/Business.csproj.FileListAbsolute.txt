@@ -7,3 +7,12 @@ C:\Users\Nastassia_Karatkova\Documents\OnlinerTests\Business\bin\Debug\netcoreap
 C:\Users\Nastassia_Karatkova\Documents\OnlinerTests\Business\obj\Debug\netcoreapp2.1\Business.dll
 C:\Users\Nastassia_Karatkova\Documents\OnlinerTests\Business\obj\Debug\netcoreapp2.1\Business.pdb
 C:\Users\Nastassia_Karatkova\Documents\OnlinerTests\Business\obj\Debug\netcoreapp2.1\Business.csprojAssemblyReference.cache
+E:\Epam_training\Onliner\onliner\Business\bin\Debug\netcoreapp2.1\Business.deps.json
+E:\Epam_training\Onliner\onliner\Business\bin\Debug\netcoreapp2.1\Business.dll
+E:\Epam_training\Onliner\onliner\Business\bin\Debug\netcoreapp2.1\Business.pdb
+E:\Epam_training\Onliner\onliner\Business\obj\Debug\netcoreapp2.1\Business.csprojAssemblyReference.cache
+E:\Epam_training\Onliner\onliner\Business\obj\Debug\netcoreapp2.1\Business.csproj.CoreCompileInputs.cache
+E:\Epam_training\Onliner\onliner\Business\obj\Debug\netcoreapp2.1\Business.AssemblyInfoInputs.cache
+E:\Epam_training\Onliner\onliner\Business\obj\Debug\netcoreapp2.1\Business.AssemblyInfo.cs
+E:\Epam_training\Onliner\onliner\Business\obj\Debug\netcoreapp2.1\Business.dll
+E:\Epam_training\Onliner\onliner\Business\obj\Debug\netcoreapp2.1\Business.pdb

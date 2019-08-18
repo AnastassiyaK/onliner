@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -22,7 +23,7 @@ namespace Business.PageObjects.CurrencyRatesPage.CurrencyConverterForm
         {
             get
             {
-                return Decimal.Parse(String.Concat(_result.Text.Where(x => x == ',' || Char.IsDigit(x))));
+                return Decimal.Parse(String.Concat(_result.Text.Where(x => x == ',' || Char.IsDigit(x))), CultureInfo.CreateSpecificCulture("be-BY"));
             }
         }
 

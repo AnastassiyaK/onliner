@@ -12,5 +12,16 @@ namespace Business.PageObjects.CurrencyRatesPage.CurrencyConverterForm
         {
             _driver.FindElement(By.Id("amount-in")).SendKeys(number.ToString());
         }
+
+        public string GetNumberFromConverter()
+        {
+            return _driver.FindElement(By.Id("amount-in")).Text;
+        }
+
+        public Converter ClearConverter()
+        {
+            _driver.FindElement(By.Id("amount-in")).Clear();
+            return this;
+        }
     }
 }
