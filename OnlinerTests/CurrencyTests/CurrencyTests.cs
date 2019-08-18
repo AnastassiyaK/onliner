@@ -5,6 +5,7 @@ using Business.PageObjects.CurrencyRatesPage.CurrencyConverterForm;
 using Business.PageObjects.MainPage.Navigation;
 using Business.TestBase;
 using NUnit.Framework;
+using System.Threading;
 
 namespace OnlinerTests.CurrencyTests
 {
@@ -33,11 +34,11 @@ namespace OnlinerTests.CurrencyTests
                 }
                 if (number < 0)
                 {
-                    Assert.AreEqual(new CurrencySection(Driver).GetRowByCurrency(Currency.USD).OtherBankCell.Value * (-1) * number, outConverter);
+                    Assert.AreEqual(new CurrencySection(Driver).GetRowByCurrency(Currency.USD).OtherBankSell.Value * (-1) * number, outConverter);
                 }
                 else
                 {
-                    Assert.AreEqual(new CurrencySection(Driver).GetRowByCurrency(Currency.USD).OtherBankCell.Value * number, outConverter);
+                    Assert.AreEqual(new CurrencySection(Driver).GetRowByCurrency(Currency.USD).OtherBankSell.Value * number, outConverter);
                 }
             }
             catch (NegativeValueException e)
@@ -56,14 +57,24 @@ namespace OnlinerTests.CurrencyTests
 
         [Test]
         [Order(3)]
-
-        public void ConvertUSDToEUR()
+        [TestCaseSource("valuesUSD")]
+        public void ConvertUSDToEUR(int number)
         {
+            new SelectOptionIn(Driver).SelectCurrency(Currency.USD);
+            new Converter(Driver).ClearConverter().EnterNumberForConversion(number);
+            new SelectOptionOut(Driver).SelectCurrency(Currency.EUR);
+            Assert.AreEqual(new CurrencyCrossSection(Driver).GetRowByCurrency(Currency.EUR,Currency.USD).OtherBankSell.Value * number, 
+                new OutConverter(Driver).Result);
 
         }
 
         public static int[] numbers =
             new int[] { -3, 0, int.MaxValue };
+
+        public static int[] valuesUSD =
+            new int[] { 5000,100000 };
+
+
 
     }
 }

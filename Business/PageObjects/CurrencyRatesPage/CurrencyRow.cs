@@ -30,13 +30,13 @@ namespace Business.PageObjects.CurrencyRatesPage
                     (_officialBankCell = new OfficialCurrency(_element.FindElement(By.CssSelector("tr:first-of-type td:nth-child(4)"))));
             }
         }
-        private BankCurrency _bankCell;
-        public BankCurrency OtherBankCell
+        private BankCurrencySell _bankSell;
+        public BankCurrencySell OtherBankSell
         {
             get
             {
-                return _bankCell ??
-                    (_bankCell = new BankCurrency(_element.FindElement(By.CssSelector("tr:first-of-type td:nth-child(2)"))));
+                return _bankSell ??
+                    (_bankSell = new BankCurrencySell(_element.FindElement(By.CssSelector("tr:first-of-type td:nth-child(2)"))));
             }
         }
 

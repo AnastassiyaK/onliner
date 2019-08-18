@@ -1,13 +1,13 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using OpenQA.Selenium;
 
 namespace Business.PageObjects.CurrencyRatesPage.OtherBanks
 {
-    public class BankCurrency : BestCurrency
+    public class BankCurrencyBuy:BestCurrency
     {
-        public BankCurrency(IWebElement element) : base(element)
+        public BankCurrencyBuy(IWebElement element) : base(element)
         {
         }
 
@@ -28,4 +28,3 @@ namespace Business.PageObjects.CurrencyRatesPage.OtherBanks
         }
     }
 }
-
