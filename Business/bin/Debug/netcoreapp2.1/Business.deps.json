@@ -422,7 +422,7 @@
     "Newtonsoft.Json/10.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MoATFm6YJyk5OdqDdxDWfKe5dkY3Cygu0wrpKPH/LbWtMmSuD/3G/JIInt9sIJN7hKQOFYCIb2UjLc2vO5byQQ==",
+      "sha512": "sha512-hSXaFmh7hNCuEoC4XNY5DrRkLDzYHqPx/Ik23R4J86Z7PE/Y6YidhG602dFVdLBRSdG6xp9NabH3dXpcoxWvww==",
       "path": "newtonsoft.json/10.0.3",
       "hashPath": "newtonsoft.json.10.0.3.nupkg.sha512"
     },
@@ -450,7 +450,7 @@
     "Selenium.WebDriver.ChromeDriver/76.0.3809.6801": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-RgjPg1ER46wyBlS/49fDX71yDlaH+NiwhjGNkYjU2QrvZ9VCKIQ7EsBGNnU7pSgUvHPh1gSrmU960EHQyOPpsQ==",
+      "sha512": "sha512-XZhXTQTJ74vzfuOCVM5160hFYCTvCs9X9TkK1d6kYpNnk5qhPCV3U5kwa5dm2oBse1lX+xhR5cyOTopDEcakSg==",
       "path": "selenium.webdriver.chromedriver/76.0.3809.6801",
       "hashPath": "selenium.webdriver.chromedriver.76.0.3809.6801.nupkg.sha512"
     },
