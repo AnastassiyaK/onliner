@@ -5,6 +5,7 @@ using Business.PageObjects.CurrencyRatesPage.CurrencyConverterForm;
 using Business.PageObjects.MainPage.Navigation;
 using Business.TestBase;
 using NUnit.Framework;
+using System;
 using System.Threading;
 
 namespace OnlinerTests.CurrencyTests
@@ -60,10 +61,13 @@ namespace OnlinerTests.CurrencyTests
         [TestCaseSource("valuesUSD")]
         public void ConvertUSDToEUR(int number)
         {
-            new SelectOptionIn(Driver).SelectCurrency(Currency.USD);
-            new Converter(Driver).ClearConverter().EnterNumberForConversion(number);
             new SelectOptionOut(Driver).SelectCurrency(Currency.EUR);
-            Assert.AreEqual(new CurrencyCrossSection(Driver).GetRowByCurrency(Currency.EUR,Currency.USD).OtherBankSell.Value * number, 
+
+            new SelectOptionIn(Driver).SelectCurrency(Currency.USD);
+
+            new Converter(Driver).ClearConverter().EnterNumberForConversion(number);      
+            
+            Assert.AreEqual(Decimal.Round(number/new CurrencyCrossSection(Driver).GetRowByCurrency(Currency.EUR,Currency.USD).OtherBankBuy.Value,4), 
                 new OutConverter(Driver).Result);
 
         }

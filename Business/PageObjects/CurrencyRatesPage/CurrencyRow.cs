@@ -39,6 +39,15 @@ namespace Business.PageObjects.CurrencyRatesPage
                     (_bankSell = new BankCurrencySell(_element.FindElement(By.CssSelector("tr:first-of-type td:nth-child(2)"))));
             }
         }
+        private BankCurrencyBuy _bankBuy;
+        public BankCurrencyBuy OtherBankBuy
+        {
+            get
+            {
+                return _bankBuy ??
+                    (_bankBuy = new BankCurrencyBuy(_element.FindElement(By.CssSelector("tr:first-of-type td:nth-child(3)"))));
+            }
+        }
 
 
 
